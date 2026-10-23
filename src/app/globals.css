@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────
+   VEYRO Design System — CSS Custom Properties
+   ────────────────────────────────────────────────── */
+
+:root {
+  /* Background layers */
+  --veyro-bg-deep: #08090C;
+  --veyro-bg-base: #0C0D12;
+  --veyro-bg-elevated: #101218;
+  --veyro-bg-surface: #151923;
+  --veyro-bg-overlay: #1A1F2B;
+  --veyro-bg-hover: #1E2433;
+
+  /* Text */
+  --veyro-text-primary: #F4F5F7;
+  --veyro-text-secondary: #9298A7;
+  --veyro-text-tertiary: #6B7280;
+  --veyro-text-muted: #4B5263;
+
+  /* Borders */
+  --veyro-border: #262B36;
+  --veyro-border-subtle: #1E2330;
+  --veyro-border-strong: #363D4F;
+
+  /* Primary accent — electric violet */
+  --veyro-accent: #8B7CFF;
+  --veyro-accent-hover: #9D90FF;
+  --veyro-accent-muted: rgba(139, 124, 255, 0.15);
+  --veyro-accent-glow: rgba(139, 124, 255, 0.25);
+
+  /* Secondary accent — restrained cyan */
+  --veyro-cyan: #5CD6E8;
+  --veyro-cyan-muted: rgba(92, 214, 232, 0.15);
+
+  /* Status colors */
+  --veyro-success: #34D399;
+  --veyro-success-muted: rgba(52, 211, 153, 0.15);
+  --veyro-warning: #FBBF24;
+  --veyro-warning-muted: rgba(251, 191, 36, 0.15);
+  --veyro-error: #F87171;
+  --veyro-error-muted: rgba(248, 113, 113, 0.15);
+
+  /* Graph node colors by language */
+  --veyro-lang-ts: #3178C6;
+  --veyro-lang-js: #F7DF1E;
+  --veyro-lang-py: #3776AB;
+  --veyro-lang-json: #A8B9CC;
+  --veyro-lang-css: #264de4;
+  --veyro-lang-other: #6B7280;
+
+  /* Radius */
+  --veyro-radius-sm: 6px;
+  --veyro-radius-md: 8px;
+  --veyro-radius-lg: 12px;
+  --veyro-radius-xl: 16px;
+  --veyro-radius-full: 9999px;
+
+  /* Shadows */
+  --veyro-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --veyro-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --veyro-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --veyro-shadow-glow: 0 0 20px var(--veyro-accent-glow);
+
+  /* Transitions */
+  --veyro-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --veyro-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --veyro-transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-index scale */
+  --veyro-z-base: 0;
+  --veyro-z-dropdown: 100;
+  --veyro-z-sticky: 200;
+  --veyro-z-overlay: 300;
+  --veyro-z-modal: 400;
+  --veyro-z-toast: 500;
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ──────────────────────────────────────────────────
+   Tailwind v4 Theme Tokens
+   ────────────────────────────────────────────────── */
+
+@theme inline {
+  --color-background: var(--veyro-bg-deep);
+  --color-foreground: var(--veyro-text-primary);
+  --color-bg-deep: var(--veyro-bg-deep);
+  --color-bg-base: var(--veyro-bg-base);
+  --color-bg-elevated: var(--veyro-bg-elevated);
+  --color-bg-surface: var(--veyro-bg-surface);
+  --color-bg-overlay: var(--veyro-bg-overlay);
+  --color-bg-hover: var(--veyro-bg-hover);
+
+  --color-text-primary: var(--veyro-text-primary);
+  --color-text-secondary: var(--veyro-text-secondary);
+  --color-text-tertiary: var(--veyro-text-tertiary);
+  --color-text-muted: var(--veyro-text-muted);
+
+  --color-border: var(--veyro-border);
+  --color-border-subtle: var(--veyro-border-subtle);
+  --color-border-strong: var(--veyro-border-strong);
+
+  --color-accent: var(--veyro-accent);
+  --color-accent-hover: var(--veyro-accent-hover);
+  --color-accent-muted: var(--veyro-accent-muted);
+  --color-cyan: var(--veyro-cyan);
+  --color-cyan-muted: var(--veyro-cyan-muted);
+
+  --color-success: var(--veyro-success);
+  --color-success-muted: var(--veyro-success-muted);
+  --color-warning: var(--veyro-warning);
+  --color-warning-muted: var(--veyro-warning-muted);
+  --color-error: var(--veyro-error);
+  --color-error-muted: var(--veyro-error-muted);
+
+  --color-lang-ts: var(--veyro-lang-ts);
+  --color-lang-js: var(--veyro-lang-js);
+  --color-lang-py: var(--veyro-lang-py);
+  --color-lang-json: var(--veyro-lang-json);
+  --color-lang-css: var(--veyro-lang-css);
+  --color-lang-other: var(--veyro-lang-other);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ──────────────────────────────────────────────────
+   Base Styles
+   ────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  border-color: var(--veyro-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--veyro-bg-deep);
+  color: var(--veyro-text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid var(--veyro-accent);
+  outline-offset: 2px;
+  border-radius: var(--veyro-radius-sm);
+}
+
+/* ──────────────────────────────────────────────────
+   Scrollbar Styles
+   ────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--veyro-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--veyro-border-strong);
+  border-radius: var(--veyro-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--veyro-text-tertiary);
+}
+
+/* ──────────────────────────────────────────────────
+   Utility Classes
+   ────────────────────────────────────────────────── */
+
+.veyro-gradient-text {
+  background: linear-gradient(135deg, var(--veyro-accent), var(--veyro-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.veyro-grid-bg {
+  background-image:
+    linear-gradient(var(--veyro-border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--veyro-border-subtle) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.veyro-radial-glow {
+  background: radial-gradient(
+    ellipse 600px 400px at 50% 0%,
+    var(--veyro-accent-muted),
+    transparent
+  );
+}
+
+.veyro-card {
+  background: var(--veyro-bg-elevated);
+  border: 1px solid var(--veyro-border);
+  border-radius: var(--veyro-radius-lg);
+  transition: border-color var(--veyro-transition-fast),
+              box-shadow var(--veyro-transition-fast);
+}
+
+.veyro-card:hover {
+  border-color: var(--veyro-border-strong);
+}
+
+.veyro-glass {
+  background: rgba(16, 18, 24, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--veyro-border);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   React Flow Overrides
+   ────────────────────────────────────────────────── */
+
+.react-flow__background {
+  background: var(--veyro-bg-deep) !important;
+}
+
+.react-flow__node {
+  cursor: pointer;
+}
+
+.react-flow__edge-path {
+  stroke: var(--veyro-border-strong);
+  stroke-width: 1.5;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--veyro-accent);
+  stroke-width: 2;
+}
+
+.react-flow__minimap {
+  background: var(--veyro-bg-elevated) !important;
+  border: 1px solid var(--veyro-border) !important;
+  border-radius: var(--veyro-radius-md) !important;
+}
+
+.react-flow__controls {
+  border: 1px solid var(--veyro-border) !important;
+  border-radius: var(--veyro-radius-md) !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: var(--veyro-bg-elevated) !important;
+  border-bottom: 1px solid var(--veyro-border) !important;
+  fill: var(--veyro-text-secondary) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--veyro-bg-surface) !important;
+  fill: var(--veyro-text-primary) !important;
+}
+
+/* ──────────────────────────────────────────────────
+   CodeMirror Overrides
+   ────────────────────────────────────────────────── */
+
+.cm-editor {
+  background: var(--veyro-bg-base) !important;
+  height: 100%;
+  font-size: 13px;
+}
+
+.cm-gutters {
+  background: var(--veyro-bg-elevated) !important;
+  border-right: 1px solid var(--veyro-border) !important;
+  color: var(--veyro-text-muted) !important;
+}
+
+.cm-activeLineGutter {
+  background: var(--veyro-bg-surface) !important;
+  color: var(--veyro-text-secondary) !important;
+}
+
+.cm-activeLine {
+  background: rgba(139, 124, 255, 0.05) !important;
+}
+
+.cm-cursor {
+  border-left-color: var(--veyro-accent) !important;
+}
+
+.cm-selectionBackground {
+  background: var(--veyro-accent-muted) !important;
+}
