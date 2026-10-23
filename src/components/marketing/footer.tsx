@@ -33,7 +33,7 @@ export function MarketingFooter() {
             Sample Repository
           </Link>
           <a
-            href="https://github.com"
+            href="https://github.com/TanishJain13/VEYRO"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--veyro-text-primary)] transition-colors"

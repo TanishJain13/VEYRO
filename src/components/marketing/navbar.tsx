@@ -44,7 +44,7 @@ export function MarketingNavbar() {
         {/* Action Buttons */}
         <div className="hidden sm:flex items-center gap-3">
           <a
-            href="https://github.com"
+            href="https://github.com/TanishJain13/VEYRO"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 text-[var(--veyro-text-secondary)] hover:text-[var(--veyro-text-primary)] hover:bg-[var(--veyro-bg-surface)] rounded-md border border-transparent hover:border-[var(--veyro-border)] transition-colors"
